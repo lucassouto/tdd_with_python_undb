@@ -1,1 +1,35 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><title>TDD with Python UNDB</title><meta name="description" content="Apresentação da palestra TDD with Python na II Semana de Tecnologia e Inovação da UNDB"><meta name="author" content="Lucas Souto"><meta property="og:type" content="website"><meta property="og:image" content="img/qualy-presenter.png"><meta property="og:description" content="Apresentação da palestra TDD with Python na II Semana de Tecnologia e Inovação da UNDB"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" type="text/css" href="css/main.css"><link rel="stylesheet" type="text/css" href="css/theme.css"></head><body><div class="reveal"><div class="slides"></div></div><script src="js/vendor/head.min.js"></script><script src="js/vendor/reveal.js"></script><script src="js/main.js"></script></body></html>
+<!DOCTYPE html><html><head><meta charset="UTF-8"><title>TDD with Python UNDB</title><meta name="description" content="Apresentação da palestra TDD with Python na II Semana de Tecnologia e Inovação da UNDB"><meta name="author" content="Lucas Souto"><meta property="og:type" content="website"><meta property="og:image" content="img/qualy-presenter.png"><meta property="og:description" content="Apresentação da palestra TDD with Python na II Semana de Tecnologia e Inovação da UNDB"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" type="text/css" href="css/main.css"><link rel="stylesheet" type="text/css" href="css/theme.css"></head><body><div class="reveal"><div class="slides"><section><h2>TDD with Python</h2></section><section data-notes="section(data-background=&quot;img/mgc.gif&quot;)"><section class="text-left"><h3>Lucas Souto</h3><p><a href="https://github.com/lucassouto">Seu palestrante de hoje</a></p></section><section class="text-left"><ul style="font-size: 30px;"><li class="fragment grow highlight-green" style="  margin-bottom: 20px;">Desenvolvedor com influências Pythonicas</li><li class="fragment grow highlight-green" style="  margin-bottom: 20px;">Bacharel em Ciência da Computação</li><li class="fragment grow highlight-green" style="  margin-bottom: 20px;">Organizador do PUG-MA (Python User Group Maranhão)</li><li class="fragment grow highlight-green" style="  margin-bottom: 20px;">Fascinado com coisas novas e por isso estou aqui falando de TDD</li></ul></section></section><section><h3>Metodologias de Desenvolvimento</h3></section><section><section><h4>Tradicionais</h4><p style="color: #f1dfa6;">Cascata</p><p style="color: #f1dfa6;">Incremental</p><p style="color: #f1dfa6;">Prototipação</p></section><section><h4>Ágeis</h4><p style="color: #f1dfa6;">Scrum</p><p style="color: #f1dfa6;">XP</p><p style="color: #f1dfa6;">Kanban</p></section></section><section><h4>Mas e as tecnicas para o desenvolvimento do seu software?</h4></section><section><ul style="color: #f1dfa6;"><li>Estruturado</li><li>POO</li><li>Design Patterns</li><li>TDD, BDD, DDD</li><li>Paradigma Funcional</li></ul></section><section data-background="img/sopa-de-letrinhas.jpg"></section><section><section><h3>Então o que é o tal do TDD?</h3></section><section data-background-image="img/tdd.jpg" data-background-size="80%"></section><section data-background-image=""></section><section data-background-image="img/tdd-vs-ftt.png" data-background-size="20%"></section><section data-background-image="img/mgc.gif" data-background-size="80%"></section></section><section><section><h3>Tipos de Testes</h3></section><section><p>Testes unitários</p></section><section><p>Testes funcionais</p></section><section><p>Testes de integração</p></section></section><section><p>Onde Python entra nessa teoria toda?</p><img src="img/show-me-the-code.jpeg" alt=""></section><section><pre><code class="python">from unittest import TestCase
+from my_project import soma
+
+class TestClass(TestCase):
+    def test_basic(self):
+        self.assertEquals(1, 1)
+
+    def test_soma(self):
+        result = soma(1, 2)
+        self.assertEquals(result, 3)</code></pre></section><section><p>Sou desenvolvedor web e só uso Django</p><img src="img/show-me-the-code.jpeg" alt=""></section><section><section><p>Mas antes disso</p></section><section><img src="img/django_test.png" alt="https://docs.djangoproject.com/en/1.11/topics/testing/tools"></section></section><section><pre style="width: 110%; height: 100%;"><code class="python">from django.test import TestCase
+from .models import People
+
+class PeopleTestCase(TestCase):
+    def setUp(self):
+        People.objects.create(name="Lucas",
+                              expertise="consertar bugs")
+        People.objects.create(name="Juliana",
+                              expertise="fazer massagem")
+
+    def test_people_expertise(self):
+        lucas = People.objects.get(name="lucas")
+        juliana = People.objects.get(name="cat")
+
+        self.assertEqual(lucas.what_expertise(),
+                         'Lucas é especialista em "consertar bugs"')
+        self.assertEqual(juliana.what_expertise(),
+                         'Juliana é especialista em "fazer massagem"')</code></pre></section><section><p>Testando o código!</p><pre><code class="shell">$ python manage.py test
+Creating test database for alias 'default'...
+System check identified no issues (0 silenced).
+
+---------------------------------------------------------------
+Ran 1 tests in 0.017s
+
+OK
+Destroying test database for alias 'default'...</code></pre></section><section><h2>Perguntas?</h2></section><section data-background-image="img/personal-contacts.png" data-background-size="100%"></section></div></div><script src="js/vendor/head.min.js"></script><script src="js/vendor/reveal.js"></script><script src="js/main.js"></script></body></html>
