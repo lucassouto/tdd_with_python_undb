@@ -1,1 +1,1 @@
-# Apresentação de TDD with Python feita na II Semana de Tecnologia e Inovação da UNDB
+# Apresentação TDD with Python feita na II Semana de Tecnologia e Inovação da UNDB

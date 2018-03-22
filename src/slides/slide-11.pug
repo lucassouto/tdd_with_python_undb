@@ -1,0 +1,13 @@
+section
+  pre
+    code.python.
+      from unittest import TestCase
+      from my_project import soma
+
+      class TestClass(TestCase):
+          def test_basic(self):
+              self.assertEquals(1, 1)
+
+          def test_soma(self):
+              result = soma(1, 2)
+              self.assertEquals(result, 3)

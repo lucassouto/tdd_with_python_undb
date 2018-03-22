@@ -1,0 +1,21 @@
+section
+  pre(style="width: 110%; height: 100%")
+    code.python.
+      from django.test import TestCase
+      from .models import People
+
+      class PeopleTestCase(TestCase):
+          def setUp(self):
+              People.objects.create(name="Lucas",
+                                    expertise="consertar bugs")
+              People.objects.create(name="Juliana",
+                                    expertise="fazer massagem")
+
+          def test_people_expertise(self):
+              lucas = People.objects.get(name="lucas")
+              juliana = People.objects.get(name="cat")
+
+              self.assertEqual(lucas.what_expertise(),
+                               'Lucas é especialista em "consertar bugs"')
+              self.assertEqual(juliana.what_expertise(),
+                               'Juliana é especialista em "fazer massagem"')
