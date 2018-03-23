@@ -12,8 +12,8 @@ section
                                     expertise="fazer massagem")
 
           def test_people_expertise(self):
-              lucas = People.objects.get(name="lucas")
-              juliana = People.objects.get(name="cat")
+              lucas = People.objects.get(name="Lucas")
+              juliana = People.objects.get(name="Juliana")
 
               self.assertEqual(lucas.what_expertise(),
                                'Lucas é especialista em "consertar bugs"')
